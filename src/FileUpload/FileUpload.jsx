@@ -11,7 +11,7 @@ const FileUpload = ({ setListData }) => {
         if (file && file.type === "text/plain") {
             setIsUploading(true);
             setFileName(file.name);
-            setFileSize((file.size / (1024 * 1024)).toFixed(2) + " MB");
+            setFileSize((file.size / 1024).toFixed(2) + " KB");
 
             const reader = new FileReader();
             reader.onload = (event) => {
