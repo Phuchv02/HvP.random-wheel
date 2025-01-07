@@ -160,12 +160,14 @@ const LuckyWheel = ({ data, onUpdate }) => {
 
             <audio
                 ref={audioSpinRef}
-                src={`${process.env.PUBLIC_URL}/spin.mp3`}
+                src={"https://pic.pikbest.com/17/97/20/67s888piCtRq.mp3"}
+                // src={`${process.env.PUBLIC_URL}/spin.mp3`}
             />
 
             <audio
                 ref={audioAwardRef}
-                src={`${process.env.PUBLIC_URL}/award.mp3`}
+                src={"https://pic.pikbest.com/00/58/42/03Y888piCNvB.mp3"}
+                // src={`${process.env.PUBLIC_URL}/award.mp3`}
             />
 
             <Modal

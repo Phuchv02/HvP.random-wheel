@@ -91,7 +91,10 @@ function App() {
         >
             <audio
                 ref={audioRef}
-                src={`${process.env.PUBLIC_URL}/music.mp3`}
+                src={
+                    "https://nhacchuong123.com/nhac-chuong/nhac-remix/ketquaxosodjremix.mp3"
+                }
+                // src={`${process.env.PUBLIC_URL}/music.mp3`}
                 loop
             />
             <div className="file-import-area">
