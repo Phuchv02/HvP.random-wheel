@@ -6,21 +6,50 @@
     padding: 10px;
     width: 350px;
     background-color: #f4f4f4;
-}
 
-.upload-btn {
-    background-color: #cd5e0e;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    .file-upload-btn-wrapper {
+        display: flex;
+        gap: 10px;
 
-    &.loading {
-        background-color: #999;
-        cursor: not-allowed;
+        button {
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+        }
+
+        .upload-btn {
+            background-color: #e97018;
+
+            &:hover {
+                background-color: #a94b09;
+            }
+
+            &.loading {
+                background-color: #999;
+                cursor: not-allowed;
+            }
+        }
+
+        .refresh-btn {
+            background-color: #cacaca;
+
+            &:hover {
+                background-color: #9c9898;
+            }
+        }
+
+        .music-btn {
+            color: #000;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
     }
 }
 
@@ -53,6 +82,9 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close-btn:hover {

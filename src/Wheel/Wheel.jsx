@@ -17,6 +17,8 @@ const LuckyWheel = ({ data, onUpdate }) => {
     const requestIdRef = useRef(null); // save requestAnimationFrame ID
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const audioSpinRef = useRef(null);
+    const audioAwardRef = useRef(null);
 
     const getItemFromAngle = (deviationDeg) => {
         const itemCount = data?.length;
@@ -27,9 +29,11 @@ const LuckyWheel = ({ data, onUpdate }) => {
     };
 
     const spinWheel = () => {
+        if (data.length <= 0) return;
         if (isSpinning) return;
 
         setIsSpinning(true);
+        handleMusicSpinOn();
 
         const randomRotation = Math.floor(Math.random() * 360) + 3000;
         const newRotation = rotation + randomRotation;
@@ -63,8 +67,10 @@ const LuckyWheel = ({ data, onUpdate }) => {
 
                 setSelectedItem(itemIndex);
                 setIsModalOpen(true);
-
                 setRotation(pauseDeg);
+
+                handleMusicSpinOff();
+                handleMusicAwardOn();
             }
         };
 
@@ -94,6 +100,25 @@ const LuckyWheel = ({ data, onUpdate }) => {
         setRotation(0);
     }, [data]);
 
+    const handleMusicSpinOn = () => {
+        if (audioSpinRef.current) {
+            audioSpinRef.current.play();
+        }
+    };
+
+    const handleMusicSpinOff = () => {
+        if (audioSpinRef.current) {
+            audioSpinRef.current.pause();
+            audioSpinRef.current.currentTime = 0;
+        }
+    };
+
+    const handleMusicAwardOn = () => {
+        if (audioAwardRef.current) {
+            audioAwardRef.current.play();
+        }
+    };
+
     return (
         <>
             <div className="wheel-container">
@@ -106,10 +131,19 @@ const LuckyWheel = ({ data, onUpdate }) => {
                             startAngle={rotation}
                             animate={true}
                             animationDuration={1000}
-                            label={({ dataEntry }) => dataEntry.title}
+                            label={({ dataEntry }) =>
+                                data?.length > 300 ? null : dataEntry.title
+                            }
                             labelPosition={80}
                             labelStyle={{
-                                fontSize: "4px",
+                                fontSize:
+                                    data.length > 100
+                                        ? "0.8px"
+                                        : data.length > 50
+                                        ? "1.5px"
+                                        : data.length > 20
+                                        ? "2.5px"
+                                        : "4px",
                                 fontWeight: "bold",
                                 fill: "#fff",
                             }}
@@ -123,6 +157,16 @@ const LuckyWheel = ({ data, onUpdate }) => {
                     <div className="wheel-arrow"></div>
                 </div>
             </div>
+
+            <audio
+                ref={audioSpinRef}
+                src={`${process.env.PUBLIC_URL}/spin.mp3`}
+            />
+
+            <audio
+                ref={audioAwardRef}
+                src={`${process.env.PUBLIC_URL}/award.mp3`}
+            />
 
             <Modal
                 isOpen={isModalOpen}

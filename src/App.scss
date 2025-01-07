@@ -17,17 +17,43 @@ body > div {
 
 .app {
     position: relative;
-}
 
-.file-import-area {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
+    .lucky-title {
+        font-size: 46px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
 
-.result {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #27ae60;
+    .file-import-area {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+
+        .show-upload-file-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: #cd5e0e;
+            color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            opacity: 0.1;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                opacity: 0.8;
+            }
+
+            &:active{
+                opacity: 1;
+            }
+        }
+    }
 }

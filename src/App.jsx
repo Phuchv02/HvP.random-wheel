@@ -1,7 +1,7 @@
 import "./App.scss";
 import LuckyWheel from "./Wheel/Wheel";
 import FileUpload from "./FileUpload/FileUpload";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const COLORS = [
     "#FF5733", // Red-Orange
@@ -15,10 +15,10 @@ const COLORS = [
 ];
 
 function App() {
-    //4. Popup remove or continue item -> handle if remove
-
     const [fileContent, setFileContent] = useState([]);
     const [items, setItems] = useState([]);
+    const [turnMusic, setTurnMusic] = useState(false);
+    const audioRef = useRef(null);
 
     useEffect(() => {
         // random color
@@ -57,20 +57,51 @@ function App() {
         setItems(listData);
     };
 
+    const handlePlayMusic = () => {
+        if (audioRef.current) {
+            audioRef.current.volume = 0.3;
+            audioRef.current.play();
+        }
+    };
+
+    const handlePauseMusic = () => {
+        if (audioRef.current) {
+            audioRef.current.pause();
+        }
+    };
+
+    useEffect(() => {
+        if (turnMusic === true) {
+            handlePlayMusic();
+        } else {
+            handlePauseMusic();
+        }
+    }, [turnMusic]);
+
     return (
         <div
             className="app"
             style={{
                 width: "100%",
                 height: "100%",
-                backgroundImage: `url(${process.env.PUBLIC_URL}/lucky_bg.png)`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/lucky_bg.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
         >
+            <audio
+                ref={audioRef}
+                src={`${process.env.PUBLIC_URL}/music.mp3`}
+                loop
+            />
             <div className="file-import-area">
-                <FileUpload setListData={setFileContent} />
+                <FileUpload
+                    setListData={setFileContent}
+                    isMusicOn={turnMusic}
+                    setTurnMusic={setTurnMusic}
+                />
             </div>
+            <h1 className="lucky-title">Lucky Draw</h1>
             <LuckyWheel data={items} onUpdate={handleUpdateItems} />
         </div>
     );
