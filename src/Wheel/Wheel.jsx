@@ -102,7 +102,9 @@ const LuckyWheel = ({ data, onUpdate }) => {
 
     const handleMusicSpinOn = () => {
         if (audioSpinRef.current) {
-            audioSpinRef.current.play();
+            audioSpinRef.current.play().catch(() => {
+                console.log("Không thể phát âm thanh");
+            });
         }
     };
 
@@ -115,7 +117,9 @@ const LuckyWheel = ({ data, onUpdate }) => {
 
     const handleMusicAwardOn = () => {
         if (audioAwardRef.current) {
-            audioAwardRef.current.play();
+            audioAwardRef.current.play().catch(() => {
+                console.log("Không thể phát âm thanh");
+            });
         }
     };
 
@@ -143,8 +147,8 @@ const LuckyWheel = ({ data, onUpdate }) => {
                                         ? "1.5px"
                                         : data.length > 20
                                         ? "2.5px"
-                                        : "4px",
-                                fontWeight: "bold",
+                                        : "3px",
+                                fontWeight: "lighter",
                                 fill: "#fff",
                             }}
                         />
