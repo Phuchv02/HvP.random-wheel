@@ -8,13 +8,13 @@
 
     .wheel {
         position: relative;
-        width: 580px;
-        height: 580px;
+        width: 540px;
+        height: 540px;
         border-radius: 50%;
         border: 20px solid hsl(40, 74%, 50%);
         transform: rotate(0deg);
         box-shadow: 0 10px 180px rgba(219, 88, 6, 0.5);
-        background-color: #db4921;
+        background-color: #ce6143;
 
         .wheel-chart-spin {
             height: 100%;

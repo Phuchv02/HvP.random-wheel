@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'PiklabSpenbeb';
-    src: url('../public/fonts/PiklabSpenbeb.ttf') format('truetype');
+    font-family: 'Montserrat';
+    src: url('../public/fonts/Montserrat.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -16,7 +16,7 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    font-family: 'PiklabSpenbeb', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body > div {
@@ -31,7 +31,7 @@ body > div {
         font-weight: bold;
         color: #fff;
         text-align: center;
-        padding: 20px;
+        padding: 92px;
         margin-bottom: 20px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);

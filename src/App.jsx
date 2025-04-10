@@ -84,7 +84,7 @@ function App() {
             style={{
                 width: "100%",
                 height: "100%",
-                backgroundImage: `url(${process.env.PUBLIC_URL}/lucky_bg.jpg)`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/lucky_bg2.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
@@ -104,7 +104,7 @@ function App() {
                     setTurnMusic={setTurnMusic}
                 />
             </div>
-            <h1 className="lucky-title">Lucky Draw</h1>
+            <h1 className="lucky-title"></h1>
             <LuckyWheel data={items} onUpdate={handleUpdateItems} />
         </div>
     );
