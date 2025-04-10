@@ -11,15 +11,15 @@
         width: 540px;
         height: 540px;
         border-radius: 50%;
-        border: 20px solid hsl(40, 74%, 50%);
+        border: 20px solid #5224BE;
         transform: rotate(0deg);
         box-shadow: 0 10px 180px rgba(219, 88, 6, 0.5);
-        background-color: #ce6143;
+        background-color: #fff;
 
         .wheel-chart-spin {
             height: 100%;
             border-radius: 100%;
-            border: solid 10px #743012;
+            border: solid 10px #5224BE;
             box-shadow: 0 0px 40px rgba(53, 35, 22, 0.9);
         }
 
@@ -31,7 +31,7 @@
             width: 160px;
             height: 160px;
             background-color: white;
-            box-shadow: 0 0px 40px rgba(143, 67, 13, 1);
+            box-shadow: 0 0px 40px #5224BE;
             border: none;
             outline: none;
             cursor: pointer;
@@ -67,7 +67,7 @@
         // border-top: 50px solid hsl(24, 86%, 40%);
         border-top: 22px solid transparent;
         border-bottom: 22px solid transparent;
-        border-right: 50px solid hsl(24, 76%, 47%);
+        border-right: 50px solid #7d61be;
         filter: drop-shadow(-4px 0px 5px rgba(0, 0, 0, 0.5));
     }
 }
